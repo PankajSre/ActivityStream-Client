@@ -1,0 +1,49 @@
+<div class="top">
+    <h2 *ngIf="commonMessage?.circle">
+        <span class="glyphicon glyphicon-globe"></span>&nbsp;{{commonMessage?.circle}}</h2>
+    <h2 *ngIf="commonMessage?.userName">
+        <span class="glyphicon glyphicon-user"></span>&nbsp;{{commonMessage?.userName}}</h2>
+</div>
+<br>
+<div *ngFor="let message of commonMessage?.messages">
+    <div class="sender">
+        <span class="glyphicon glyphicon-user"></span>&nbsp;
+        <b>{{message.senderEmailId}}</b> at {{message.sentDate| date: 'yyyy-MM-dd hh:mm:ss'}}</div>
+    <div class="message">
+        <span class="glyphicon glyphicon-envelope"></span> &nbsp;{{message.messageText}}
+        <div class="btn-group"   class="divbutton" style="float: right;padding-right: 20px;" class="btn-group btn-group-sm">
+            <span class="glyphicon glyphicon-edit" title="Edit the Message" (click)="editMessage(message.messageId)"></span>
+            <span  class="glyphicon glyphicon-remove-sign" title="Delete the Message" (click)="deleteMessage(message)"></span>
+            <span class="glyphicon glyphicon-share-alt" title="Share the Message" (click)="shareThisMessage($event)"></span>
+        </div>
+    </div>
+    <div *ngIf="edited">
+        <div *ngIf="updatedId==message.messageId">
+            <div class="form-group">
+                <input type="text" #myMsg class="form-control" id="message" value="{{message.messageText}}">
+                <br>
+            </div>
+            <div style="float: right; padding-right: 30px;">
+                <button class="btn btn-primary btn-xs" (click)="cancel($event)">Cancel</button>
+                <button class="btn btn-success btn-xs" (click)="editMessage(message.messageId)">Save Changes</button>
+            </div>
+        </div>
+    </div>
+
+    <br>
+</div>
+<!--
+<div>
+    <input type="text" class="fixed" [(ngModel)]="enteredMessage" (keydown)="sendMyMessage($event)" placeholder="# Enter Message Here" />
+</div>
+-->
+<div class="input-group" style="position: fixed; bottom: 5px;">
+            <span class="input-group-addon" style="background: lightblue; border: 2px solid purple;" id="btnGroupAddon">+</span>
+            <input type="text" [matAutocomplete]="auto" matInput [formControl]="myControl" style="width: 45%;border: 2px solid purple;background: rgb(199, 187, 199);" class="form-control" [(ngModel)]="enteredMessage"
+                (keydown)="sendMyMessage($event)" placeholder="Message @{{commonMessage?.userName}}{{commonMessage?.circle}}" aria-describedby="btnGroupAddon" >
+            <mat-autocomplete #auto="matAutocomplete">
+                <mat-option *ngFor="let user of users " [value]="user.username">
+                    @{{ user.username }}
+                </mat-option>
+            </mat-autocomplete>
+</div>

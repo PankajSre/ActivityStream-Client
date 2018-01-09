@@ -1,0 +1,78 @@
+* {
+    box-sizing: border-box;
+  }
+  html, body {margin: 0; height: 100%; overflow: hidden}
+  .header {
+    background-color: purple;
+    color: white;
+    text-align: center;
+    padding: 5px;
+    height: 70px;
+  }
+  .footer {
+    background-color: brown;
+    color: white;
+    height: 50px;
+    padding: 15px;
+  }
+  .column {
+    float: left;
+    padding: 15px;
+  }
+  .clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+  .menu {
+    width: 25%;
+  }
+  .content {
+    position: relative;
+    top: 40px;
+    width: auto;
+    height: 430px;
+    padding-left: 20px;
+    bottom: 10px;
+    vertical-align: bottom;
+    overflow: auto;
+  }
+  #div:hover{overflow-y: scroll;}
+  .menu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  .menu li {
+    padding: 8px;
+    margin-bottom: 8px;
+    background-color: #33b5e5;
+    color: #ffffff;
+  }
+  .menu li:hover {
+    background-color: #0099cc;
+  }
+  #right{
+  float: right;
+  }
+    input.fixed {
+      position: fixed;
+      width: 50%;
+      bottom: 10px;
+      height: 30px;
+      text: 25px solid black;
+      border: 3px solid #8AC007;
+  } 
+  #test{
+    padding-left: 310px;
+  }
+  #message{
+    height: 26px;
+    width: 100%;
+  
+  }
+  #div { overflow:hidden;height:2 px; }
+  
+  
+
+  

@@ -1,0 +1,46 @@
+<body>
+  <div style="padding-top: 0px;float: right;">
+  <span class="glyphicon glyphicon-remove" (click)="cancel()" ></span>
+    </div>
+<div class="header">
+  
+  <h1 style="text-align: center;">My Circle - {{circle}}</h1> 
+ </div>
+ 
+ <div>
+   
+    <div class="column menu" class="left">
+      <h4 style="background: purple;color: white;padding-left: 70px;">Users</h4>
+  <ul  *ngFor="let user of users" [class.selected]="user === selectedUser" (click)="selectUsers(user.emailId)">
+    <li>{{user.emailId}} </li>    
+  </ul>
+</div>
+   
+   
+    <div class="right">
+        <h4 style="background: purple;color: white;padding-left: 50px;">Existing Users</h4>
+      <ul>
+          
+        <li *ngFor="let existing of usersFromCircle" [class.clicked]="emailId === selectedEmailId" (click)="removeUsers(existing)">
+          {{existing}}
+        </li>
+      </ul>
+      <h4 *ngIf="selected" style="background: purple;color: white;padding-left: 70px;">New Users</h4>
+      <ul  *ngFor="let user of selected">
+        <li>{{user}}</li>
+      </ul>
+   </div>
+   
+ 
+  <div class="operator">
+   <span class="glyphicon glyphicon-forward" (click)="addToCircle($event)"></span><br><br>
+   <span class="glyphicon glyphicon-backward" (click)="removeFromCircle($event)"></span>
+   </div>
+  
+ </div>
+ <br>
+ <div class="footer">
+  <button mat-raised-button color="warn" (click)="deleteUserfromCircle($event)" style="float:left;">Unsubscribe</button> <button mat-raised-button color="primary" (click)="addUserToCircle($event)" style="float:right;">Subscribe</button>
+ </div>
+</body>
+ 

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+
+</style>
+</head>
+<body>
+
+<div class="header">
+ <h1>Activity Stream </h1> 
+</div>
+
+<div class="clearfix">
+  <div class="left" style="height: 100%">
+    <app-circle [circles]="circles"  (commonMessage)="getMessagesByCircle($event)"></app-circle>
+  </div>
+  
+   <div class="right">
+    <app-user [users]="users" (commonMessage)="getMessagesByUser($event)"></app-user>
+  </div>
+  
+
+ <div class="content">
+   <app-message [commonMessage]="commonMessage" ></app-message>
+  </div>
+</div>
+
+</body>
+</html>

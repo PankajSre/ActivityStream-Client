@@ -1,0 +1,8 @@
+
+  <div class="column menu" id="right">
+      <ul> <li style="background: purple;">Users </li></ul>
+  <ul  *ngFor="let user of users" [class.selected]="user === selectedUser" (click)="getMessagesByUser(user.emailId)">
+    <li><span class="glyphicon glyphicon-user"></span> &nbsp;{{user.username}} </li>    
+  </ul>
+</div>
+

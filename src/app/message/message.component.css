@@ -1,0 +1,39 @@
+.fixed {
+    position: fixed;
+    width: 46%;
+    bottom: 10px;
+    height: 30px;
+    background: rgb(189, 170, 170);
+    text: 25px solid black;
+    border: 3px solid rgb(97, 88, 88);
+    border-radius: 6px;
+} 
+.fileButton :hover{
+  background: blue;
+}
+div.top {
+  position: fixed;
+  width: 48%;
+  top: 70px;
+  
+} 
+#test{
+  padding-left: 300px;
+}
+#message{
+  height: 26px;
+  width: 100%;
+ float: left;
+}
+.sender{
+  color:  darkblue;
+}
+
+#show {
+  display: none;
+}
+
+.divbutton:hover #show {
+  display: block;
+}
+

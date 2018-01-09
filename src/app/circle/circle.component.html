@@ -1,0 +1,9 @@
+<div class="column menu" id="circle">
+  <ul> <li style="background: purple;">Circles  <span style="float: right;"(click)="openDialog()" class="glyphicon glyphicon-plus-sign"></span></li></ul>
+   
+  <ul *ngFor="let circle of circles"  [class.selected]="circle === selectedCircle" (click)="getMessagesByCircle(circle.circleName)">
+     
+    <li><span class="glyphicon glyphicon-globe"> {{circle.circleName}}</span> <span class="glyphicon glyphicon-edit" style="float: right;" (click)="addUserToCircle($event)"></span></li>
+  </ul>
+ 
+</div>
